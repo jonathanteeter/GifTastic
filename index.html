@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="animalButtons">
+
+    </div>
+
+    <form id="animal-form">
+        <label for="animal-input">Add an animal</label>
+        <input type="text" id="animal-input"><br>
+
+        <input id-="addAnimal" type="submit" value="Submit">
+    </form>
+    
+    <div id="animals">
+    
+    </div>
+
+    <script type="text/javascript">
+        // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+        var userinput = 'Forrest+Gump';
+        var baseUrl = 'http://omdbapi.com/?apikey=trilogy&s=';
+        var url = baseUrl + userinput;
+        $.ajax({
+            url: url,
+            method: 'GET'
+        })
+        .then(function(response) {
+            console.log(response);
+            for (var i = 0; i < response.Search.length; i++) {
+                console.log(response.Search[i]);
+            }
+        });
+    
+        // ---------------------------------------------------------
+    
+        console.log("This console.log will probably happen first because of asynchronicity.");
+        var x = 2;
+        var y = 10;
+        var z = 13;
+        console.log("We can also assign some variables and do some arithmetic while we wait too: 2 + 10 + 13 = ", x + y + z);
+      </script>
+    
+</body>
+</html>
