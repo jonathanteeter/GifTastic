@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>NASA</title>
+</head>
+<body>
+
+    <div id="NASA">
+
+    </div>
+
+    
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+        var userinput = 'goats';
+        // var baseUrl = 'http://omdbapi.com/?apikey=6reIEyodtA7WwC4NN1QcXX8rY7E3CgrE';
+        var baseUrl = 'https://api.giphy.com/v1/gifs/search?q=';
+        var userinput = 'goats';
+        var key = '&xhZaqFQHadxdfwECPk3PnrH9Km1XVPnO&limit=5';
+        // var url = baseUrl + userinput + key;
+        var url = "https://api.nasa.gov/planetary/apod?api_key=UnOIyFpbxGLcIkiXKbUKWCHIXBh7R84dn1QOt0Cv";
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            method: 'GET'
+        })
+        .then(function(response) {
+            console.log(response);
+            // for (var i = 0; i < 4; i++) {
+            //     console.log(response.Search[i]);
+            // }
+        });
+
+        // Asteroid
+
+
+        // var url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2010-01-01&end_date=2018-02-28&api_key=UnOIyFpbxGLcIkiXKbUKWCHIXBh7R84dn1QOt0Cv";
+        // console.log(url);
+
+        // $.ajax({
+        //     url: url,
+        //     method: 'GET'
+        // })
+        // .then(function(response) {
+        //     console.log(response);
+        //     // for (var i = 0; i < 4; i++) {
+        //     //     console.log(response.Search[i]);
+        //     // }
+        // });
+    
+        // ---------------------------------------------------------
+        // Asteroid - Neo Lookup
+        
+        // var url = "https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=UnOIyFpbxGLcIkiXKbUKWCHIXBh7R84dn1QOt0Cv";
+        // console.log(url);
+
+        // $.ajax({
+        //     url: url,
+        //     method: 'GET'
+        // })
+        // .then(function(response) {
+        //     console.log(response);
+        //     // for (var i = 0; i < 4; i++) {
+        //     //     console.log(response.Search[i]);
+        //     // }
+        // });
+
+        // ---------------------------------------------------------
+        // Asteroid - Neo Browse (near earth orbits)
+        
+
+        var url = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=UnOIyFpbxGLcIkiXKbUKWCHIXBh7R84dn1QOt0Cv";
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            method: 'GET'
+        })
+        .then(function(response) {
+            console.log(response);
+            // for (var i = 0; i < 4; i++) {
+            //     console.log(response.Search[i]);
+            // }
+        });
+
+        //
+        var url = "https://genelab-data.ndc.nasa.gov/genelab/data/search?term=space&from=0&type=cgene,nih_geo_gse&ffield=links&fvalue=GPL16417&ffield=Data Source Accession&fvalue=GSE82255&api_key=UnOIyFpbxGLcIkiXKbUKWCHIXBh7R84dn1QOt0Cv";
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            method: 'GET'
+        })
+        .then(function(response) {
+            console.log(response);
+            // for (var i = 0; i < 4; i++) {
+            //     console.log(response.Search[i]);
+            // }
+        });
+
+
+        console.log("This console.log will probably happen first because of asynchronicity.");
+        var x = 2;
+        var y = 10;
+        var z = 13;
+        console.log("We can also assign some variables and do some arithmetic while we wait too: 2 + 10 + 13 = ", x + y + z);
+      </script>
+    
+</body>
+</html>

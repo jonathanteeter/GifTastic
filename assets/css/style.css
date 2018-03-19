@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #efeee7;
+    font-family: "Georgia", 'Times New Roman',
+    Times, serif;
+    color: #333333;
+    font-size:20px;
+}
+
+.btn {
+    background-color: #4CAF50; /* Green */
+    border: 2px solid #555555;
+    border-radius: 12px;
+    color: white;
+    height: 40px;
+}
+
+.img {
+    display: inline-block;
+    /* float: left; */
+    width: 33.33%;
+    padding: 5px;
+}
+
+#images {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}

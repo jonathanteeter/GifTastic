@@ -1,18 +1,12 @@
-var animals[
-    dog,
-    cat,
-    fish,
-    armadillo,
-    goat
-];
-
-French Bulldog
-href="https://i.giphy.com/media/a0QEiXEBwAWXe/giphy.webp"
+var topics = ["flamingo", "babyHippos", "lemurs", "pinguins", "honeyBadgers", "monkeys", "goats", "armadillos"];
 
 
-<section>
-    <button class="btn btn-info btn-lg" onclick="alert('This rows contains styled buttons')">Goat</button>
-    <button class="btn btn-info btn-lg" onclick="alert('This rows contains styled buttons')">Monkey</button>
-    <input class="btn btn-default" type="button" value="Input" />
+
+for(i=0; i < topics.length; i++) {
+
+    <a class="btn btn-info btn-lg" href="#" role="button">topics[i]</a>
+
+}
     <input class="btn btn-default" type="submit" value="Submit" />
-</section>
+
+
