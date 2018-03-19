@@ -73,8 +73,8 @@
                         var animalDiv = $("<div>");
 
                         // Creating a paragraph tag with the result item's rating
-                        var p = $("<p>").text("Rating is: " + ratingURL);
-
+                        var p = $("<p>").text("Rating is: " + ratingURL);  // WANTED TO USE "str.toUpperCase() without success.
+                        
                         // Define variables that provide the Rating & image URL, both still and animated
                         var ratingURL = response.data[j].rating;
                         var stillImageURL = response.data[j].images.fixed_height_still.url;

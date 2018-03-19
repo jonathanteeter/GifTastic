@@ -1,34 +1,12 @@
 # GifTastic
-Homework 6 AJAX
+Homework Week 6 AJAX
+University of Denver - Trilogy
+Full Stack Web Development Bootcamp
+18 March 2018
+By Jonathan Teeter
 
+What the project does: This project uses the API to GIFFY.COM to pull search for like giffys.  It's pure entertainment and performs no useful work except to provind development skills for the one learning.
 
-Attack gifs:  https://giphy.com/gifs/a0QEiXEBwAWXe
+Why the project is useful: The project was useful in combining multiple methods together to include javascript, jQuery, AJAX, HTML, and CSS as introduced in class and learned through the assignments.
 
-French Bulldog
-https://i.giphy.com/media/a0QEiXEBwAWXe/giphy.webp
-
-Armadillo?
-https://media.giphy.com/media/1IC4QW6uVHrHO/giphy.gif
-
-
-Monkey
-https://media0.giphy.com/media/1254JnAHl43eTK/200w.webp 
-
-Bird
-https://media1.giphy.com/media/DTlplF491gQCc/200w.webp
-https://media2.giphy.com/media/Z12LmVvEyepry/200w.webp
-https://media0.giphy.com/media/SROspKvDCuS3u/200w.webp
-https://media2.giphy.com/media/UEQhBZDjDAheE/200w.webp
-
-Wolf
-https://media2.giphy.com/media/JflhEd0EwsLYs/200w.webp
-
-Cats
-https://media2.giphy.com/media/gFjF62Lh2QTJu/200w.webp
-
-Fish
-https://media2.giphy.com/media/YSgW19RmNfokM/200w.webp *
-https://media1.giphy.com/media/HQxDrfIQzfrEI/200w.webp *
-
-Goat
-https://media3.giphy.com/media/2Tv4WJpl4G27S/200w.webp *
+How users can get started with the project: Great exercise in learning 
