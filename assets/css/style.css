@@ -11,22 +11,33 @@ body {
 }
 
 .btn {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     border: 2px solid #555555;
     border-radius: 12px;
     color: white;
     height: 40px;
+    margin: 2px;
 }
 
-.img {
+.animalResults {
     display: inline-block;
-    /* float: left; */
-    width: 33.33%;
-    padding: 5px;
+    margin: 10px;
 }
 
 #images {
     float: left;
-    width: 33.33%;
-    padding: 5px;
+    padding: 20px;
 }
+
+#add-animal {
+    background-color: #4CAF50; 
+    border: 2px solid #555555;
+    border-radius: 12px;
+    color: black;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.container {
+   float: left;
+} 

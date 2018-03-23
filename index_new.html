@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Bootswatch Styling for Improving the Aesthetics -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>AJAX Homework</title>
 </head>
 <body>
 
+    <!-- <header>Click each button for animal fun:</header>
+
+    <div id='animalButtons'></div>
+    <div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8">
+            <h1>testing 2/3</h1>
+            <div id='images'></div>
+        </div>
+
+        <div class="col-lg-4">
+            <h1>testing 1/3</h1>
+        </div>
+
+    </div> -->
 
     <h1>Click each button for animal fun:</h1>
 
@@ -19,11 +34,11 @@
 
     <div class="container">
 
-        <div class="col-lg-9">
+        <div class="col-lg-10">
             <div id='images'></div>
         </div>
         
-        <div class="col-lg-3">
+        <div class="col-lg-2">
             <form id="image-form">
                 <br>
                 <label for="image-input">Add a New Animal:</label>
@@ -35,62 +50,57 @@
         </div>
 
 
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript">
 
         var topics = ["Flamingos", "Hippos", "Lemurs", "Camels", "Honey Badgers", "Hyenas", "Monkeys", "Llamas", "Anteaters", "Sloths", "Toucans", "Goats", "Armadillo", "Pinguin"];
         
+        
+        // // Function for displaying movie data
+        // function renderButtons() {
+
+        // Deleting the movie buttons prior to adding new movie buttons
+        // (this is necessary otherwise we will have repeat buttons)
+        //     $("#movies-view").empty();
+
+        //     // Looping through the array of movies
+        //     for (var i = 0; i < movies.length; i++) {
+
+        //         // Then dynamicaly generating buttons for each movie in the array.
+        //         // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+        //         var a = $("<button>");
+        //         // Adding a class
+        //         a.addClass("movie");
+        //         // Adding a data-attribute with a value of the movie at index i
+        //         a.attr("data-name", movies[i]);
+        //         // Providing the button's text with a value of the movie at index i
+        //         a.text(movies[i]);
+        //         // Adding the button to the HTML
+        //         $("#movies-view").append(a);
+        //     }
+        // }
 
         $(document).ready(function(){
-
-            $("#add-animal").on("click", function(event) {
-
-                console.log("New Button Added");
-
-                // event.preventDefault() prevents the form from trying to submit itself.
-                // We're using a form so that the user can hit enter instead of clicking the button if they want
-                event.preventDefault();
-
-                // This line will grab the text from the input box
-                var animal = $("#image-input").val().trim();
-                console.log(animal);
-
-                // The animal from the textbox is then added to our array
-                topics.push(animal);
-
-                console.log("topics: " + topics);
-
-                render();
-            });
             
-            function render() {
-                $("#animalButtons").empty();
+            for(var i = 0; i < topics.length; i++) {
                 
-                console.log("Function Render Called");
+                // create html element
+                var buttonName = $("<buttons>");
 
-                for(var i = 0; i < topics.length; i++) {
-                    
-                    // create html element
-                    var buttonName = $("<buttons>");
+                buttonName.attr('button', (topics[i]))
+                buttonName.attr('id', 'animal-button')
+                buttonName.addClass('btn')
+                buttonName.addClass('animal-buttons')
+                buttonName.text(topics[i])
 
-                    buttonName.attr('button', (topics[i]))
-                    buttonName.attr('id', 'animal-button')
-                    buttonName.addClass('btn')
-                    buttonName.addClass('animal-buttons')
-                    buttonName.text(topics[i])
+                console.log(topics[i])
 
-                    console.log(topics[i])
-
-                    // add button to page
-                    $("#animalButtons").append(buttonName) 
-                }
+                // add button to page
+                $("#animalButtons").append(buttonName) 
             }
-            render();
-            
-
+  
             $(".animal-buttons").on("click", function() {
-
-                console.log("Animal Button Clicked");
                 
                 // Get selected animal
                 var selectedAnimal = $(this).attr("button");
@@ -121,26 +131,23 @@
 
                         // Creating and storing a div tag
                         var animalDiv = $("<div>");
-                        animalDiv.addClass("animalResults");
-
 
                         // Creating a paragraph tag with the result item's rating
                         var p = $("<p>").text("Rating is: " + ratingURL);  // WANTED TO USE "str.toUpperCase() without success.
                         
                         // Define variables that provide the Rating & image URL, both still and animated
                         var ratingURL = response.data[j].rating;
-
                         var stillImageURL = response.data[j].images.fixed_height_small_still.url;
                         var animateImageURL = response.data[j].images.fixed_height_small.url
                         console.log("Rating is: ", ratingURL);
-                        console.log("Image URL is: ", stillImageURL);
+                        console.log("Image URL is: ", animateImageURL);
 
                         // Creating and storing an image tag
                         var animalImage = $("<img>");
 
                         // Setting the src attribute of the image to a property pulled off the result item
                         animalImage.attr("src", animateImageURL);
-                        animalImage.attr("alt", selectedAnimal);
+                        animalImage.attr("alt", userinput);
                         
                         // Appending the paragraph and image tag to the animalDiv
                         animalDiv.append(p);
@@ -150,18 +157,13 @@
                         $("#images").prepend(animalDiv);
 
                     }
-                });              
+                });
             });
         })
 
     </script>
-
-    <!-- jQuery JS -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-
-    <!-- Code to the JavaScript File -->  
+    
     <script>src="assets/javascript/animaze.js"</script>
-
     </div>
 </body>
 </html>
