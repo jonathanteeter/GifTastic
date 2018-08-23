@@ -1,15 +1,12 @@
-var array = ["Anteaters", "Armadillos", "Baboons", "Camels", "Flamingos", "Goats", "Hippos", "Honey Badgers", "Lemurs", "Penguins", "Toucans"];
+var array = ["Cheetahs", "Flamingos", "Giraffes", "Goats", "Koala Bears", "Orangutans", "Lemurs", "Ostriches", "Penguins", "Toucans"];
 
 $(document).ready(function(){
 
     $("#add-animal").on("click", function(event) { // CSS Styled
-
-        console.log("New Button Added");
-
         // event.preventDefault() prevents the form from trying to submit itself.
-        // We're using a form so that the user can hit enter instead of clicking the button if they want
         event.preventDefault();
 
+        // Using a form so that the user can hit enter INSTEAD of clicking the button if they want
         // This line will grab the text from the input box
         var animal = $("#image-input").val().trim();
         console.log(animal);
@@ -19,39 +16,13 @@ $(document).ready(function(){
 
         console.log("array: " + array);
 
-        render();
+        renderButtons();
     });
     
-            // // Function for displaying movie data
-        // function renderButtons() {
-
-        // Deleting the movie buttons prior to adding new movie buttons
-        // (this is necessary otherwise we will have repeat buttons)
-        //     $("#movies-view").empty();
-
-        //     // Looping through the array of movies
-        //     for (var i = 0; i < movies.length; i++) {
-
-        //         // Then dynamicaly generating buttons for each movie in the array.
-        //         // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
-        //         var a = $("<button>");
-        //         // Adding a class
-        //         a.addClass("movie");
-        //         // Adding a data-attribute with a value of the movie at index i
-        //         a.attr("data-name", movies[i]);
-        //         // Providing the button's text with a value of the movie at index i
-        //         a.text(movies[i]);
-        //         // Adding the button to the HTML
-        //         $("#movies-view").append(a);
-        //     }
-        // }
-
-    function render() {
+    function renderButtons() {
         // Delete the animal buttons prior to adding new ones
         // (this is necessary otherwise we will have repeat buttons)
         $("#animalButtons").empty();
-        
-        console.log("Function Render Called");
 
         // Loop through the array of animals
         for(var i = 0; i < array.length; i++) {
@@ -73,12 +44,13 @@ $(document).ready(function(){
             // add button to page
             $("#animalButtons").append(buttonName) 
         }
+        // jQuery line break to the page to clear Gifs if displayed
+        $("#images").html("<br />");
     }
-    render();
 
     // Detect the animal button clicked and display the associated Gifs
-    $(".animal-buttons").on("click", function() {
-
+    // $(".animal-buttons").on("click", function() {
+    function displayGifs() {
         console.log("Animal Button Clicked");
         
         // Get selected animal
@@ -88,10 +60,11 @@ $(document).ready(function(){
         // Prepare the URL
         var baseUrl = 'https://api.giphy.com/v1/gifs/search?q=';
         var userinput = selectedAnimal;
-        var key = '&api_key=xhZaqFQHadxdfwECPk3PnrH9Km1XVPnO&limit=10';
+        var key = '&api_key=xhZaqFQHadxdfwECPk3PnrH9Km1XVPnO&limit=15';
         var queryURL = baseUrl + userinput + key;
 
         console.log(queryURL);
+        // jQuery line break to the page before display of GIFs
         $("#images").html("<br />");
 
         // Make the AJAX call to the queryURL using jQuery
@@ -109,7 +82,6 @@ $(document).ready(function(){
                 var animalDiv = $("<div>");
                 animalDiv.addClass("animalResults"); // CSS styled
 
-
                 // Creating a paragraph tag with the result item's rating
                 var p = $("<p>").text("Rating is: " + ratingURL);  // WANTED TO USE "str.toUpperCase() without success.
                 
@@ -119,12 +91,14 @@ $(document).ready(function(){
                 var stillImageURL = response.data[j].images.fixed_height_small_still.url;
                 var animateImageURL = response.data[j].images.fixed_height_small.url
                 console.log("Rating is: ", ratingURL);
-                console.log("Image URL is: ", stillImageURL);
+                console.log("Still Image URL: ", stillImageURL);
+                console.log("Animate Image URL: ", animateImageURL);
 
                 // Creating and storing an image tag
                 var animalImage = $("<img>");
 
                 // Setting the src attribute of the image to a property pulled off the result item
+                // animalImage.attr("src", stillImageURL);
                 animalImage.attr("src", animateImageURL);
                 animalImage.attr("alt", selectedAnimal);
                 
@@ -132,10 +106,14 @@ $(document).ready(function(){
                 animalDiv.append(p);
                 animalDiv.append(animalImage);
                 
-                // Add animal images to the #images div
+                // Add animal images to the images ID div
                 $("#images").prepend(animalDiv); // CSS styled
-
             }
         });              
-    });
+    };
+
+    // Detect the animal button clicked and display the associated Gifs
+    // $(".animal-buttons").on("click", displayGifs());
+    $(document).on('click', ".animal-buttons", displayGifs);
+    renderButtons();
 });
