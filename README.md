@@ -10,10 +10,11 @@ This project uses the GIFFY API (https://api.giphy.com) to make a dynamic web pa
     * The user can also create additional buttons with animals of their choosing.
     * Finally, the user can select each image displayed.  The image then toggles from still to animated.  (Future)
 * Key technologies used to build this application are:
-    * Bootstrap framework
-    * HTML & CSS
-    * JavaScript with jQuery library
-    * API call using AJAX 
+    * Bootstrap -- Responsive web design framework
+    * HTML and CSS -- Provides the means to create structured documents with style
+    * JavaScript -- Provides coding logic
+    * jQuery library -- Manipulates the HTML
+    * AJAX -- Make the API requests
 
 ## Why the project is useful
 This project provides a means to learn solid web development skills using the technologies listed.
